@@ -4,7 +4,7 @@ ll.registerPlugin(
     /* introduction */
     "手机号验证",
     /* version */
-    [0, 0, 1],
+    [1, 0, 0],
     /* otherInformation */
     {
         "author": "星雲Nebulae"
@@ -12,11 +12,24 @@ ll.registerPlugin(
 );
 
 const dataFile = './plugins/phone_verification/player_data.json';
+const configFile = './plugins/phone_verification/config.json';
 const phoneCodeMap = new Map(); // 临时缓存验证码
 
 function initStorage() {
     if (!File.exists(dataFile)) {
         File.writeTo(dataFile, '{}');
+    }
+    
+    // 初始化配置文件
+    if (!File.exists(configFile)) {
+        const defaultConfig = {
+            "sms": {
+                "apiUrl": "https://dfsns.market.alicloudapi.com/data/send_sms",
+                "appCode": "your_app_code",
+                "templateId": "CST_ptdie100"
+            }
+        };
+        File.writeTo(configFile, JSON.stringify(defaultConfig, null, 2));
     }
 }
 
@@ -34,15 +47,20 @@ function generateCode() {
 }
 
 function sendSMS(phone, code) {
-    const body = `phone_number=${phone}&template_id=CST_ptdie100&content=code:${code}`;
+    // 从配置文件读取API信息
+    const configContent = File.readFrom(configFile);
+    const config = configContent ? JSON.parse(configContent) : {};
+    const smsConfig = config.sms || {};
+    
+    const body = `phone_number=${phone}&template_id=${smsConfig.templateId || "CST_ptdie100"}&content=code:${code}`;
     const headers = {
-        "Authorization": "APPCODE ",
+        "Authorization": `APPCODE ${smsConfig.appCode}`,
         "Content-Type": "application/x-www-form-urlencoded"
     };
     const type = "application/x-www-form-urlencoded";
 
     network.httpPost(
-        "https://dfsns.market.alicloudapi.com/data/send_sms",
+        smsConfig.apiUrl,
         headers,
         body,
         type,
