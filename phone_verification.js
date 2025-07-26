@@ -4,7 +4,7 @@ ll.registerPlugin(
     /* introduction */
     "手机号验证",
     /* version */
-    [1, 0, 0],
+    [1, 1, 0],
     /* otherInformation */
     {
         "author": "星雲Nebulae"
@@ -24,9 +24,13 @@ function initStorage() {
     if (!File.exists(configFile)) {
         const defaultConfig = {
             "sms": {
+                // 阿里云短信服务API
                 "apiUrl": "https://dfsns.market.alicloudapi.com/data/send_sms",
+                /* 阿里云短信服务AppCode */
                 "appCode": "your_app_code",
-                "templateId": "CST_ptdie100"
+                /* 短信模板ID */
+                "templateId": "CST_ptdie100",
+                "Warning!!!":"因为每一家的sms接口参数可能存在差异，并不保证所有的sms都可以在本插件使用。本插件按照北京深智恒际科技有限公司的接口参数进行编写。链接：https://market.aliyun.com/apimarket/detail/cmapi00037170#sku=yuncode31170000018 （并非广告）"
             }
         };
         File.writeTo(configFile, JSON.stringify(defaultConfig, null, 2));
@@ -149,5 +153,6 @@ function showCodeForm(pl, phone) {
 mc.listen("onServerStarted", () => {
     initStorage();
     logger.info("✅ [phone_verification] 插件已启动");
+    logger.info("🏢 DreamArk Studio");
     logger.info("🤵 作者：@Nebulae");
 });
