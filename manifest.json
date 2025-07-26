@@ -1,0 +1,10 @@
+{
+    "entry": "phone_verification.js",
+    "name": "phone_verification",
+    "type": "lse-quickjs",
+    "dependencies": [
+        {
+            "name": "legacy-script-engine-quickjs"
+        }
+    ]
+}
