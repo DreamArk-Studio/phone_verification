@@ -33,7 +33,7 @@
 ## 📦 依赖环境
 
 - Minecraft Bedrock 服务器  
-- LeviLamina 核心（莱维拉）  
+- LeviLamina 加载器  
 - LegacyScriptEngine (LSE) 支持  
 
 ---
