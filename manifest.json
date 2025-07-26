@@ -2,6 +2,9 @@
     "entry": "phone_verification.js",
     "name": "phone_verification",
     "type": "lse-quickjs",
+    "author": "星雲Nebulae",
+    "description": "手机号验证",
+    "version": "0.5.1",
     "dependencies": [
         {
             "name": "legacy-script-engine-quickjs"

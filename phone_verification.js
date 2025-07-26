@@ -1,3 +1,16 @@
+ll.registerPlugin(
+    /* name */
+    "phone_verification",
+    /* introduction */
+    "手机号验证",
+    /* version */
+    [0, 0, 1],
+    /* otherInformation */
+    {
+        "author": "星雲Nebulae"
+    }
+);
+
 const dataFile = './plugins/phone_verification/player_data.json';
 const phoneCodeMap = new Map(); // 临时缓存验证码
 
