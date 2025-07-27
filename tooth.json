@@ -1,0 +1,34 @@
+{
+    "format_version": 3,
+    "format_uuid": "0ea99be9-69c0-4e05-91bc-3aa9c572cec2",
+    "tooth": "github.com/DreamArk-Studio/phone_verification",
+    "version": "1.1.0",
+    "info": {
+        "name": "phone_verification",
+        "description": "",
+        "tags": [
+            "levilamina"
+        ],
+        "avatar_url": ""
+    },
+    "variants": [
+        {
+            "platform": "win-x64",
+            "assets": [
+                {
+                    "type": "zip",
+                    "urls": [
+                        "https://{{tooth}}/releases/download/v{{version}}/phone_verification.zip"
+                    ],
+                    "placements": [
+                        {
+                            "type": "dir",
+                            "src": "phone_verification/",
+                            "dest": "plugins/phone_verification/"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
