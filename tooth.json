@@ -1,21 +1,37 @@
 {
+  "format_version": 3,
+  "format_uuid": "289f771f-2c9a-4d73-9f3f-8492495a924d",
   "tooth": "github.com/DreamArk-Studio/phone_verification",
   "version": "1.1.0",
   "info": {
-    "name": "phone_verification"
+    "name": "Phone Verification",
+    "description": "A phone verification plugin for LeviLamina",
+    "tags": ["levilamina", "utility"],
+    "avatar_url": ""
   },
   "variants": [
     {
       "platform": "win-x64",
-      "assets": [{
-        "type": "zip",
-        "urls": ["https://github.com/DreamArk-Studio/phone_verification/releases/download/v1.1.0/phone_verification.zip"],
-        "placements": [{
-          "type": "dir",
-          "src": "phone_verification/",
-          "dest": "plugins/phone_verification/"
-        }]
-      }]
+      "assets": [
+        {
+          "type": "zip",
+          "urls": [
+            "https://github.com/DreamArk-Studio/phone_verification/releases/download/v{{version}}/phone_verification.zip"
+          ],
+          "placements": [
+            {
+              "type": "dir",
+              "src": "phone_verification/",
+              "dest": "plugins/phone_verification/"
+            }
+          ]
+        }
+      ],
+      "scripts": {
+        "post_install": [
+          "echo Plugin installed successfully!"
+        ]
+      }
     }
   ]
 }
