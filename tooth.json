@@ -18,7 +18,7 @@
                 {
                     "type": "zip",
                     "urls": [
-                        "https://github.com/DreamArk-Studio/phone_verification/releases/download/v{{version}}/phone_verification.zip"
+                        "https://github.com/DreamArk-Studio/phone_verification/releases/download/v1.1.0/phone_verification.zip"
                     ],
                     "placements": [
                         {
